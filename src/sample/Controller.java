@@ -2,6 +2,7 @@ package sample;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
@@ -18,18 +19,38 @@ public class Controller implements Initializable {
     @FXML TextField tfInterrogativo;
     @FXML TextField tfInt_Negativo;
 
-    ArbolB arbolAfirmativo = new ArbolB();
-    ArbolB arbolNegativo = new ArbolB();
-    ArbolB arbolInterrogativo = new ArbolB();
-    ArbolB arbolInt_Negativo = new ArbolB();
+    Alert Result = new Alert(Alert.AlertType.ERROR);
+
+    ArbolB arbolAfirmativo;
+    ArbolB arbolNegativo;
+    ArbolB arbolInterrogativo;
+    ArbolB arbolInt_Negativo;
+
     LinkedList list = new LinkedList();
 
     @FXML private void analizar(){
+
+        /*
+        Result.setTitle("Error");
+        Result.setHeaderText("Dato "+claveSearch+" no encontrado");
+
+        Result.showAndWait();
+        */
+        arbolAfirmativo = new ArbolB();
+        arbolNegativo = new ArbolB();
+        arbolInterrogativo = new ArbolB();
+        arbolInt_Negativo = new ArbolB();
+
         list.clear();
         tfAfirmativo.clear();
         tfInterrogativo.clear();
         tfNegativo.clear();
         tfInt_Negativo.clear();
+
+        String sujeto;
+        String auxiliar;
+        String verbo;
+        String complement;
 
         try {
             String oracion = tfOracion.getText();
@@ -47,26 +68,94 @@ public class Controller implements Initializable {
                 case "Afirmativo":
                     System.out.println("Oracion afirmativa");
 
-                    // llenar arboles e imprimir en pre-order
-                    String sujeto = ((Token) list.get(0)).value;
-                    String verbo = ((Token) list.get(1)).value;
-                    String complement = ((Token) list.get(2)).value;
-                    System.out.println("Sujeto de la lista: "+sujeto);
 
-                    arbolInt_Negativo.crear_arbolNegativo(sujeto,verbo,complement);
+
+                    // llenar arboles e imprimir en pre-order
+
+                    sujeto = ((Token) list.get(0)).value;
+
+                    if (sujeto.compareTo("he") ==0 || sujeto.compareTo("she") ==0 || sujeto.compareTo("it") ==0){
+                        auxiliar = "does";
+                    }else {
+                        auxiliar = "do";
+                    }
+
+                    verbo = ((Token) list.get(1)).value;
+                    complement = ((Token) list.get(2)).value;
+
+
+                    arbolNegativo.crear_arbolNegativo2(sujeto,verbo,complement,auxiliar);
+                    arbolInterrogativo.crear_arbolInte(sujeto,verbo,complement,auxiliar);
+                    arbolInt_Negativo.crear_arbolInt_Negativo(sujeto,verbo,complement,auxiliar);
+
+                    tfNegativo.setText(arbolNegativo.getRecoValues());
+                    tfInterrogativo.setText(arbolInterrogativo.getRecoValues());
+                    tfInt_Negativo.setText(arbolInt_Negativo.getRecoValues());
+
+                    // crear los otros arboles
 
                     break;
 
-                case "Negativo":
-                    System.out.println("Oracion Negativo");
+                case "Negativo1":
+                    System.out.println("Oracion Negativo1");
+                    break;
+
+                case "Negativo2":
+                    System.out.println("Oracion Negativo2");
+
+                    sujeto = ((Token) list.get(0)).value;
+                    auxiliar = ((Token) list.get(1)).value;
+                    verbo = ((Token) list.get(3)).value;
+                    complement = ((Token) list.get(4)).value;
+
+
+                    arbolAfirmativo.crear_arbolAfirmativo(sujeto,verbo,complement);
+                    arbolInterrogativo.crear_arbolInte(sujeto,verbo,complement,auxiliar);
+                    arbolInt_Negativo.crear_arbolInt_Negativo(sujeto,verbo,complement,auxiliar);
+
+
+                    tfAfirmativo.setText(arbolAfirmativo.getRecoValues());
+                    tfInterrogativo.setText(arbolInterrogativo.getRecoValues());
+                    tfInt_Negativo.setText(arbolInt_Negativo.getRecoValues());
+
                     break;
 
                 case "Interrogativo":
                     System.out.println("Oracion Interrogativa");
+                    // do i play piano ?
+
+                    auxiliar = ((Token) list.get(0)).value;
+                    sujeto = ((Token) list.get(1)).value;
+                    verbo = ((Token) list.get(2)).value;
+                    complement = ((Token) list.get(3)).value;
+
+                    arbolAfirmativo.crear_arbolAfirmativo(sujeto,verbo,complement);
+                    arbolInt_Negativo.crear_arbolInt_Negativo(sujeto,verbo,complement,auxiliar);
+                    arbolNegativo.crear_arbolNegativo2(sujeto,verbo,complement,auxiliar);
+
+
+                    tfAfirmativo.setText(arbolAfirmativo.getRecoValues());
+                    tfNegativo.setText(arbolNegativo.getRecoValues());
+                    tfInt_Negativo.setText(arbolInt_Negativo.getRecoValues());
+
                     break;
 
                 case "Int_Negativo":
                     System.out.println("Oracion Interrogativa negativa");
+
+                    auxiliar = ((Token) list.get(0)).value;
+                    sujeto = ((Token) list.get(2)).value;
+                    verbo = ((Token) list.get(3)).value;
+                    complement = ((Token) list.get(4)).value;
+
+                    arbolAfirmativo.crear_arbolAfirmativo(sujeto,verbo,complement);
+                    arbolNegativo.crear_arbolNegativo2(sujeto,verbo,complement,auxiliar);
+                    arbolInterrogativo.crear_arbolInte(sujeto,verbo,complement,auxiliar);
+
+                    tfAfirmativo.setText(arbolAfirmativo.getRecoValues());
+                    tfNegativo.setText(arbolNegativo.getRecoValues());
+                    tfInterrogativo.setText(arbolInterrogativo.getRecoValues());
+
                     break;
             }
 
@@ -76,8 +165,6 @@ public class Controller implements Initializable {
                 taSalida.appendText(((Token) aux).ID + "\t");
 
             }*/
-
-            arbolInt_Negativo.preOrder();
 
         }catch (Exception e){
             System.out.println("Error: "+e);
@@ -106,21 +193,44 @@ public class Controller implements Initializable {
 
                     break;
                 case 1:
+                    String aux = ((Token) oracion.get(index-1)).value;
+
+
                     if (((Token)oracion.get(index)).ID.compareTo("Sujeto") == 0 ){
-                        Estado = 2;
+                        String auxSujeto = ((Token) oracion.get(index)).value;
+
+                        if (aux.compareTo("does") == 0){
+                            if (auxSujeto.compareTo("he")==0 || auxSujeto.compareTo("she")==0 || auxSujeto.compareTo("it")==0){
+                                Estado = 2;
+                            }else {
+                                Result.setTitle("Error");
+                                Result.setHeaderText("Pronombre: "+auxSujeto+" o Auxiliar: "+aux+" incorrecto");
+                                Result.showAndWait();
+                                return "";
+                            }
+
+                        }else if (auxSujeto.compareTo("he")==0 || auxSujeto.compareTo("she")==0 || auxSujeto.compareTo("it")==0){
+                            Result.setTitle("Error");
+                            Result.setHeaderText("Pronombre incorrecto: "+auxSujeto);
+                            Result.showAndWait();
+                            return "";
+                        }else {
+                            Estado = 2;
+
+                        }
+
                     } else if (((Token)oracion.get(index)).ID.compareTo("aux_negativo") == 0 ){
                         Estado = 6;
                     }
 
-                    // Estado de Error
                     break;
                 case 2:
                     if (((Token)oracion.get(index)).ID.compareTo("Verbo") == 0 ){
                         Estado = 3;
                     }else {
-
-                        // Estado de error
-                        System.out.println("Error: Esperaba un verbo");
+                        Result.setTitle("Error");
+                        Result.setHeaderText("Esperaba un verbo: "+((Token)oracion.get(index)).value);
+                        Result.showAndWait();
                         return "";
                     }
 
@@ -150,6 +260,11 @@ public class Controller implements Initializable {
                 case 7:
                     if (((Token)oracion.get(index)).ID.compareTo("Verbo") == 0 ){
                         Estado = 8;
+                    }else {
+                        Result.setTitle("Error");
+                        Result.setHeaderText("Esperaba un verbo: "+((Token)oracion.get(index)).value);
+                        Result.showAndWait();
+                        return "";
                     }
 
                     break;
@@ -182,7 +297,7 @@ public class Controller implements Initializable {
                     }
 
                     if (((Token)oracion.get(index)).ID.compareTo("Auxiliar") == 0 ){
-                        Estado = 17;
+                        Estado = 18;
                     }
 
                     break;
@@ -205,35 +320,42 @@ public class Controller implements Initializable {
 
                     break;
                 case 15:
-                    if (((Token)oracion.get(index)).ID.compareTo("Complemento") == 0 ){
+                    if (((Token)oracion.get(index)).ID.compareTo("Verbo") == 0 ){
                         Estado = 16;
                     }
 
                     break;
                 case 16:
-                    salida = "Negativo";
+                    if (((Token)oracion.get(index)).ID.compareTo("Complemento") == 0 ){
+                        Estado = 17;
+                    }
 
                     break;
                 case 17:
-                    if (((Token)oracion.get(index)).ID.compareTo("aux_negativo") == 0 ){
-                        Estado = 18;
-                    }
+                    salida = "Negativo1";
 
                     break;
                 case 18:
-                    if (((Token)oracion.get(index)).ID.compareTo("Verbo") == 0 ){
+                    if (((Token)oracion.get(index)).ID.compareTo("aux_negativo") == 0 ){
                         Estado = 19;
                     }
 
+
                     break;
                 case 19:
-                    if (((Token)oracion.get(index)).ID.compareTo("Complemento") == 0 ){
+                    if (((Token)oracion.get(index)).ID.compareTo("Verbo") == 0 ){
                         Estado = 20;
                     }
 
                     break;
                 case 20:
-                    salida = "Negativo";
+                    if (((Token)oracion.get(index)).ID.compareTo("Complemento") == 0 ){
+                        Estado = 21;
+                    }
+
+                    break;
+                case 21:
+                    salida = "Negativo2";
                     break;
             }
 

@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/ArbolB.java" afterPath="$PROJECT_DIR$/src/sample/ArbolB.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/Controller.java" afterPath="$PROJECT_DIR$/src/sample/Controller.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/Token.java" afterPath="$PROJECT_DIR$/src/sample/Token.java" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -62,71 +64,58 @@
     <favorites_list name="JavaFxApplication" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.6042003">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="Controller.java" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/sample/Controller.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="1.7340425">
-                  <caret line="313" column="1" selection-start-line="313" selection-start-column="1" selection-end-line="313" selection-end-column="1" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="ArbolB.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/sample/ArbolB.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="81" column="29" selection-start-line="81" selection-start-column="29" selection-end-line="81" selection-end-column="29" />
-                  <folding>
-                    <element signature="method#insertar#0;class#ArbolB#0" expanded="false" />
-                    <element signature="method#insertarIzquierda#0;class#ArbolB#0" expanded="false" />
-                    <element signature="method#insertarDerecha#0;class#ArbolB#0" expanded="false" />
-                    <element signature="method#crear_arbolAfirmativo#0;class#ArbolB#0" expanded="false" />
-                    <element signature="method#crear_arbolInte#0;class#ArbolB#0" expanded="false" />
-                    <element signature="method#inertarNodoInterno#0;class#ArbolB#0" expanded="false" />
-                    <element signature="method#recoIzq#0;class#ArbolB#0" expanded="false" />
-                    <element signature="method#recoDer#0;class#ArbolB#0" expanded="false" />
-                    <element signature="method#preOrder#0;class#ArbolB#0" expanded="false" />
-                    <element signature="method#preOrder#1;class#ArbolB#0" expanded="false" />
-                    <element signature="method#inOrder#0;class#ArbolB#0" expanded="false" />
-                    <element signature="method#inOrder#1;class#ArbolB#0" expanded="false" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Nodo.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/sample/Nodo.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="9" column="21" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file leaf-file-name="Token.java" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/sample/Token.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.14042553">
-                  <caret line="29" column="30" selection-start-line="29" selection-start-column="22" selection-end-line="29" selection-end-column="30" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="Controller.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/sample/Controller.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.69405097">
+              <caret line="156" column="0" selection-start-line="156" selection-start-column="0" selection-end-line="156" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ArbolB.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/ArbolB.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="172" column="0" selection-start-line="172" selection-start-column="0" selection-end-line="172" selection-end-column="0" />
+              <folding>
+                <element signature="method#insertar#0;class#ArbolB#0" expanded="false" />
+                <element signature="method#insertarIzquierda#0;class#ArbolB#0" expanded="false" />
+                <element signature="method#insertarDerecha#0;class#ArbolB#0" expanded="false" />
+                <element signature="method#crear_arbolNegativo1#0;class#ArbolB#0" expanded="false" />
+                <element signature="method#preOrder#0;class#ArbolB#0" expanded="false" />
+                <element signature="method#preOrder#1;class#ArbolB#0" expanded="false" />
+                <element signature="method#inOrder#1;class#ArbolB#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Nodo.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/Nodo.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="9" column="21" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Token.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/Token.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="8" column="73" selection-start-line="8" selection-start-column="73" selection-end-line="8" selection-end-column="73" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -157,8 +146,8 @@
         <option value="$PROJECT_DIR$/src/sample/Gramaticas.java" />
         <option value="$PROJECT_DIR$/src/sample/Tokens.java" />
         <option value="$PROJECT_DIR$/src/sample/Nodo.java" />
-        <option value="$PROJECT_DIR$/src/sample/Token.java" />
         <option value="$PROJECT_DIR$/src/sample/Grafico.java" />
+        <option value="$PROJECT_DIR$/src/sample/Token.java" />
         <option value="$PROJECT_DIR$/src/sample/ArbolB.java" />
         <option value="$PROJECT_DIR$/src/sample/Controller.java" />
       </list>
@@ -724,6 +713,9 @@
     </configuration>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="" />
@@ -732,16 +724,16 @@
       <updated>1359379246138</updated>
       <workItem from="1359379250712" duration="1302000" />
       <workItem from="1457846036251" duration="25207000" />
-      <workItem from="1458094600056" duration="9774000" />
+      <workItem from="1458094600056" duration="22395000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36283000" />
+    <option name="totallyTimeSpent" value="48904000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="724" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -750,7 +742,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21451104" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21451104" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21001616" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
@@ -759,7 +751,7 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39905363" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39905363" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -803,6 +795,14 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
@@ -810,25 +810,25 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/sample/Controller.java</url>
-          <line>55</line>
+          <url>file://$PROJECT_DIR$/src/sample/ArbolB.java</url>
+          <line>146</line>
           <properties />
-          <option name="timeStamp" value="13" />
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/sample/ArbolB.java</url>
+          <line>169</line>
+          <properties />
+          <option name="timeStamp" value="22" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/sample/Controller.java</url>
-          <line>88</line>
+          <line>145</line>
           <properties />
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/sample/Controller.java</url>
-          <line>265</line>
-          <properties />
-          <option name="timeStamp" value="17" />
+          <option name="timeStamp" value="26" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="18" />
+      <option name="time" value="27" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -855,14 +855,9 @@
             <element signature="method#insertar#0;class#ArbolB#0" expanded="false" />
             <element signature="method#insertarIzquierda#0;class#ArbolB#0" expanded="false" />
             <element signature="method#insertarDerecha#0;class#ArbolB#0" expanded="false" />
-            <element signature="method#crear_arbolAfirmativo#0;class#ArbolB#0" expanded="false" />
-            <element signature="method#crear_arbolInte#0;class#ArbolB#0" expanded="false" />
-            <element signature="method#inertarNodoInterno#0;class#ArbolB#0" expanded="false" />
-            <element signature="method#recoIzq#0;class#ArbolB#0" expanded="false" />
-            <element signature="method#recoDer#0;class#ArbolB#0" expanded="false" />
+            <element signature="method#crear_arbolNegativo1#0;class#ArbolB#0" expanded="false" />
             <element signature="method#preOrder#0;class#ArbolB#0" expanded="false" />
             <element signature="method#preOrder#1;class#ArbolB#0" expanded="false" />
-            <element signature="method#inOrder#0;class#ArbolB#0" expanded="false" />
             <element signature="method#inOrder#1;class#ArbolB#0" expanded="false" />
           </folding>
         </state>
@@ -925,32 +920,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_74.jdk/Contents/Home/javafx-src.zip!/javafx/fxml/FXMLLoader.java">
+    <entry file="file://$PROJECT_DIR$/src/sample/Token.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="1777" column="0" selection-start-line="1777" selection-start-column="0" selection-end-line="1777" selection-end-column="0" />
+          <caret line="8" column="73" selection-start-line="8" selection-start-column="73" selection-end-line="8" selection-end-column="73" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/ArbolB.java">
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_74.jdk/Contents/Home/javafx-src.zip!/javafx/fxml/FXMLLoader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="81" column="29" selection-start-line="81" selection-start-column="29" selection-end-line="81" selection-end-column="29" />
-          <folding>
-            <element signature="method#insertar#0;class#ArbolB#0" expanded="false" />
-            <element signature="method#insertarIzquierda#0;class#ArbolB#0" expanded="false" />
-            <element signature="method#insertarDerecha#0;class#ArbolB#0" expanded="false" />
-            <element signature="method#crear_arbolAfirmativo#0;class#ArbolB#0" expanded="false" />
-            <element signature="method#crear_arbolInte#0;class#ArbolB#0" expanded="false" />
-            <element signature="method#inertarNodoInterno#0;class#ArbolB#0" expanded="false" />
-            <element signature="method#recoIzq#0;class#ArbolB#0" expanded="false" />
-            <element signature="method#recoDer#0;class#ArbolB#0" expanded="false" />
-            <element signature="method#preOrder#0;class#ArbolB#0" expanded="false" />
-            <element signature="method#preOrder#1;class#ArbolB#0" expanded="false" />
-            <element signature="method#inOrder#0;class#ArbolB#0" expanded="false" />
-            <element signature="method#inOrder#1;class#ArbolB#0" expanded="false" />
-          </folding>
+        <state vertical-scroll-proportion="0.33144477">
+          <caret line="1770" column="0" selection-start-line="1770" selection-start-column="0" selection-end-line="1770" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -962,18 +944,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Token.java">
+    <entry file="file://$PROJECT_DIR$/src/sample/ArbolB.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.14042553">
-          <caret line="29" column="30" selection-start-line="29" selection-start-column="22" selection-end-line="29" selection-end-column="30" />
-          <folding />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="172" column="0" selection-start-line="172" selection-start-column="0" selection-end-line="172" selection-end-column="0" />
+          <folding>
+            <element signature="method#insertar#0;class#ArbolB#0" expanded="false" />
+            <element signature="method#insertarIzquierda#0;class#ArbolB#0" expanded="false" />
+            <element signature="method#insertarDerecha#0;class#ArbolB#0" expanded="false" />
+            <element signature="method#crear_arbolNegativo1#0;class#ArbolB#0" expanded="false" />
+            <element signature="method#preOrder#0;class#ArbolB#0" expanded="false" />
+            <element signature="method#preOrder#1;class#ArbolB#0" expanded="false" />
+            <element signature="method#inOrder#1;class#ArbolB#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.7340425">
-          <caret line="313" column="1" selection-start-line="313" selection-start-column="1" selection-end-line="313" selection-end-column="1" />
+        <state vertical-scroll-proportion="0.69405097">
+          <caret line="156" column="0" selection-start-line="156" selection-start-column="0" selection-end-line="156" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

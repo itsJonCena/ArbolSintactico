@@ -6,7 +6,7 @@ package sample;
 public class Token {
     private String[] auxiliar = {"do","does"};
     private String[] sujeto = {"i","you","he","she","it","we","you","they"};
-    private String[] verbos = {"play","clean","study"};
+    private String[] verbos = {"play","clean","study","like","live","have"};
     private String[] verb_to_be = {"am","is","are",};
 
 
@@ -14,7 +14,6 @@ public class Token {
     String value;
 
 
-    int indice;
 
     public Token(String value){
         // encontrar el tipo de token
@@ -64,8 +63,5 @@ public class Token {
 
     }
 
-    public void setIndice(int indice) {
-        this.indice = indice;
-    }
 
 }
