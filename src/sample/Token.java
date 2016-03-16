@@ -13,6 +13,9 @@ public class Token {
     String ID;
     String value;
 
+    public Token(){
+
+    }
 
 
     public Token(String value){
@@ -63,5 +66,43 @@ public class Token {
 
     }
 
+    public boolean isComplement(String value){
+        if (value.compareTo("not") == 0) {
+            return false;
+        }
 
-}
+        if (value.compareTo("?") ==0){
+            return false;
+        }
+
+        for (String aux: auxiliar) {
+            if (value.compareTo(aux) == 0){
+                return false;
+            }
+        }
+
+        for (String aux: sujeto) {
+            if (value.compareTo(aux) == 0){
+                return false;
+            }
+        }
+
+        for (String aux: verbos) {
+            if (value.compareTo(aux) == 0){
+                return false;
+            }
+        }
+
+        for (String aux: verb_to_be) {
+            if (value.compareTo(aux) == 0){
+                return false;
+            }
+        }
+
+        return true;
+        }
+
+
+    }
+
+

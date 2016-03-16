@@ -3,7 +3,6 @@ package sample;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 import java.io.*;
@@ -21,25 +20,17 @@ public class Controller implements Initializable {
 
     Alert Result = new Alert(Alert.AlertType.ERROR);
 
-    ArbolB arbolAfirmativo;
-    ArbolB arbolNegativo;
-    ArbolB arbolInterrogativo;
-    ArbolB arbolInt_Negativo;
+    ArbolB arbolAfirmativo = new ArbolB();
+    ArbolB arbolNegativo = new ArbolB();
+    ArbolB arbolInterrogativo  = new ArbolB();
+    ArbolB arbolInt_Negativo  = new ArbolB();
 
     LinkedList list = new LinkedList();
+    String[] values;
 
     @FXML private void analizar(){
 
-        /*
-        Result.setTitle("Error");
-        Result.setHeaderText("Dato "+claveSearch+" no encontrado");
-
-        Result.showAndWait();
-        */
-        arbolAfirmativo = new ArbolB();
-        arbolNegativo = new ArbolB();
-        arbolInterrogativo = new ArbolB();
-        arbolInt_Negativo = new ArbolB();
+        leerArboles();
 
         list.clear();
         tfAfirmativo.clear();
@@ -56,6 +47,7 @@ public class Controller implements Initializable {
             String oracion = tfOracion.getText();
 
             String[] split = oracion.split(" ");
+
             for (String aux: split) {
                 list.add(new Token(aux));
             }
@@ -67,9 +59,6 @@ public class Controller implements Initializable {
             switch (tipoOracion(list)){
                 case "Afirmativo":
                     System.out.println("Oracion afirmativa");
-
-
-
                     // llenar arboles e imprimir en pre-order
 
                     sujeto = ((Token) list.get(0)).value;
@@ -83,17 +72,15 @@ public class Controller implements Initializable {
                     verbo = ((Token) list.get(1)).value;
                     complement = ((Token) list.get(2)).value;
 
-
-                    arbolNegativo.crear_arbolNegativo2(sujeto,verbo,complement,auxiliar);
-                    arbolInterrogativo.crear_arbolInte(sujeto,verbo,complement,auxiliar);
-                    arbolInt_Negativo.crear_arbolInt_Negativo(sujeto,verbo,complement,auxiliar);
+                    arbolNegativo.setInOrder(new String[]{sujeto,auxiliar,verbo,complement});
+                    arbolInterrogativo.setInOrder(new String[]{auxiliar,sujeto,verbo,complement});
+                    arbolInt_Negativo.setInOrder(new String[]{auxiliar,sujeto,verbo,complement});
 
                     tfNegativo.setText(arbolNegativo.getRecoValues());
                     tfInterrogativo.setText(arbolInterrogativo.getRecoValues());
                     tfInt_Negativo.setText(arbolInt_Negativo.getRecoValues());
 
-                    // crear los otros arboles
-
+                    
                     break;
 
                 case "Negativo1":
@@ -109,9 +96,9 @@ public class Controller implements Initializable {
                     complement = ((Token) list.get(4)).value;
 
 
-                    arbolAfirmativo.crear_arbolAfirmativo(sujeto,verbo,complement);
-                    arbolInterrogativo.crear_arbolInte(sujeto,verbo,complement,auxiliar);
-                    arbolInt_Negativo.crear_arbolInt_Negativo(sujeto,verbo,complement,auxiliar);
+                    arbolAfirmativo.setInOrder(new String[]{sujeto,verbo,complement});
+                    arbolInterrogativo.setInOrder(new String[]{auxiliar,sujeto,verbo,complement});
+                    arbolInt_Negativo.setInOrder(new String[]{auxiliar,sujeto,verbo,complement});
 
 
                     tfAfirmativo.setText(arbolAfirmativo.getRecoValues());
@@ -129,9 +116,9 @@ public class Controller implements Initializable {
                     verbo = ((Token) list.get(2)).value;
                     complement = ((Token) list.get(3)).value;
 
-                    arbolAfirmativo.crear_arbolAfirmativo(sujeto,verbo,complement);
-                    arbolInt_Negativo.crear_arbolInt_Negativo(sujeto,verbo,complement,auxiliar);
-                    arbolNegativo.crear_arbolNegativo2(sujeto,verbo,complement,auxiliar);
+                    arbolAfirmativo.setInOrder(new String[]{sujeto,verbo,complement});
+                    arbolInt_Negativo.setInOrder(new String[]{auxiliar,sujeto,verbo,complement});
+                    arbolNegativo.setInOrder(new String[]{sujeto,auxiliar,verbo,complement});
 
 
                     tfAfirmativo.setText(arbolAfirmativo.getRecoValues());
@@ -148,9 +135,9 @@ public class Controller implements Initializable {
                     verbo = ((Token) list.get(3)).value;
                     complement = ((Token) list.get(4)).value;
 
-                    arbolAfirmativo.crear_arbolAfirmativo(sujeto,verbo,complement);
-                    arbolNegativo.crear_arbolNegativo2(sujeto,verbo,complement,auxiliar);
-                    arbolInterrogativo.crear_arbolInte(sujeto,verbo,complement,auxiliar);
+                    arbolAfirmativo.setInOrder(new String[]{sujeto,verbo,complement});
+                    arbolNegativo.setInOrder(new String[]{sujeto,auxiliar,verbo,complement});
+                    arbolInterrogativo.setInOrder(new String[]{auxiliar,sujeto,verbo,complement});
 
                     tfAfirmativo.setText(arbolAfirmativo.getRecoValues());
                     tfNegativo.setText(arbolNegativo.getRecoValues());
@@ -389,12 +376,36 @@ public class Controller implements Initializable {
     }
 
 
+    public void crearArboles(){
+        arbolAfirmativo = new ArbolB();
+        arbolAfirmativo.setName("Arbol_Afirmativo");
+        arbolAfirmativo.crear_arbolAfirmativo();
+        guardarAlrbol(arbolAfirmativo);
 
-    private void guardarAlrbol(){
+        arbolNegativo = new ArbolB();
+        arbolNegativo.setName("Arbol_Negativo");
+        arbolNegativo.crear_arbolNegativo2();
+        guardarAlrbol(arbolNegativo);
+
+
+        arbolInterrogativo = new ArbolB();
+        arbolInterrogativo.setName("Arbol_Interrogativo");
+        arbolInterrogativo.crear_arbolInte();
+        guardarAlrbol(arbolInterrogativo);
+
+        arbolInt_Negativo = new ArbolB();
+        arbolInt_Negativo.setName("Arbol_Interrogativo_Negativo");
+        arbolInt_Negativo.crear_arbolInt_Negativo();
+        guardarAlrbol(arbolInt_Negativo);
+
+
+    }
+
+    private void guardarAlrbol(ArbolB tree ){
         try {
-            final FileOutputStream fo = new FileOutputStream("arbolAfirmativo.bin");
+            final FileOutputStream fo = new FileOutputStream(tree.name+".bin");
             final ObjectOutputStream oos = new ObjectOutputStream(fo);
-            oos.writeObject(arbolAfirmativo);
+            oos.writeObject(tree);
             oos.flush();
             oos.close();
 
@@ -405,32 +416,47 @@ public class Controller implements Initializable {
         }
     }
 
-    private void leerArbol(){
-        try
-        {
-            final FileInputStream fis = new FileInputStream("arbolAfirmativo.bin");
-            final ObjectInputStream ois = new ObjectInputStream(fis);
-            final Object deserializedObject = ois.readObject();
+    private void leerArboles(){
+        String[] strings ={"Arbol_Afirmativo.bin","Arbol_Negativo.bin","Arbol_Interrogativo.bin","Arbol_Interrogativo_Negativo.bin"};
+        ArbolB[] arboles = {arbolAfirmativo,arbolNegativo,arbolInterrogativo,arbolInt_Negativo};
+        int index =0;
 
-            System.out.println("Tipo de objeto " + deserializedObject.getClass().getName());
+        for (String name:strings) {
 
-            if (deserializedObject instanceof ArbolB) {
-                arbolAfirmativo = (ArbolB) deserializedObject;
+            try
+            {
+                final FileInputStream fis = new FileInputStream(name);
+                final ObjectInputStream ois = new ObjectInputStream(fis);
+                final Object deserializedObject = ois.readObject();
+
+                System.out.println("Tipo de objeto " + deserializedObject.getClass().getName());
+
+                if (deserializedObject instanceof ArbolB) {
+                    arboles[index] = (ArbolB) deserializedObject;
+                }
+                else {
+                    System.out.println("No se esperaba " + deserializedObject.getClass().getName());
+                }
+                ois.close();
+
             }
-            else {
-                System.out.println("No se esperaba " + deserializedObject.getClass().getName());
+            catch (Exception ex)
+            {
+                System.out.println("Exeption <<<<: "+ex);
             }
-            ois.close();
 
+            index++;
         }
-        catch (Exception ex)
-        {
-            System.out.println("Exeption <<<<: "+ex);
-        }
+        arbolAfirmativo = arboles[0];
+        arbolNegativo = arboles[1];
+        arbolInterrogativo = arboles[2];
+        arbolInt_Negativo = arboles[3];
     }
 
     @Override
     public void initialize(URL arg, ResourceBundle rb) {
+        //crearArboles();
+        leerArboles();
     }
 
 }
