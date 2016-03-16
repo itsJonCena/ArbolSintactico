@@ -52,6 +52,7 @@ public class Controller implements Initializable {
                     String verbo = ((Token) list.get(1)).value;
                     String complement = ((Token) list.get(2)).value;
                     System.out.println("Sujeto de la lista: "+sujeto);
+
                     arbolInt_Negativo.crear_arbolNegativo(sujeto,verbo,complement);
 
                     break;
@@ -85,82 +86,184 @@ public class Controller implements Initializable {
 
 
     private String tipoOracion(LinkedList oracion){
+        int index=0, Estado = 0;
+        String salida = "";
 
-        if (((Token)oracion.get(0)).ID.compareTo("Auxiliar") == 0){
-            if (((Token)oracion.get(1)).ID.compareTo("Sujeto") == 0){
-                if (((Token)oracion.get(2)).ID.compareTo("Auxiliar") == 0){
-                    if (((Token)oracion.get(3)).ID.compareTo("Verbo") == 0){
-                        return "Afirmativo";
-                    }else if (((Token)oracion.get(3)).ID.compareTo("aux_negativo") == 0){
-                        return "Int_Negativo";
+        while (index <= oracion.size()){
+
+            switch (Estado){
+                case 0:
+                    switch (((Token)oracion.get(index)).ID){
+                        case "Auxiliar":
+                            Estado = 1;
+                            break;
+
+                        case "Sujeto":
+                            Estado = 11;
+                            break;
+
+                    }
+
+                    break;
+                case 1:
+                    if (((Token)oracion.get(index)).ID.compareTo("Sujeto") == 0 ){
+                        Estado = 2;
+                    } else if (((Token)oracion.get(index)).ID.compareTo("aux_negativo") == 0 ){
+                        Estado = 6;
+                    }
+
+                    // Estado de Error
+                    break;
+                case 2:
+                    if (((Token)oracion.get(index)).ID.compareTo("Verbo") == 0 ){
+                        Estado = 3;
                     }else {
-                        System.out.println("Error");
-                    }
-                }else if (((Token)oracion.get(2)).ID.compareTo("Verbo") == 0){
-                    if (((Token)oracion.get(3)).ID.compareTo("Complemento") == 0){
-                        if (((Token)oracion.get(4)).ID.compareTo("Q_Mark") == 0){
-                            return "Interrogativo";
-                        }else {
-                            System.out.println("Error: Q_Mark");
-                        }
-                    }
-                }else if (((Token)oracion.get(2)).ID.compareTo("aux_negativo") == 0){
-                    if (((Token)oracion.get(3)).ID.compareTo("Verbo") == 0){
-                        if (((Token)oracion.get(4)).ID.compareTo("Complemento") == 0){
-                            if (((Token)oracion.get(5)).ID.compareTo("Q_Mark") == 0){
-                                return "Int_Negativo";
-                            }else {
-                                System.out.println("Error: Falta Question Mark");
-                            }
-                        }else {
-                            System.out.println("Error: Falta Complemento");
-                        }
-                    }else{
-                        System.out.println("Error: Falta verbo");
-                    }
-                }else {
-                    System.out.println("Error: Falta auxiliar negativo");
-                }
 
-            }else {
+                        // Estado de error
+                        System.out.println("Error: Esperaba un verbo");
+                        return "";
+                    }
 
-                System.out.println("Error");
-                //System.exit(0);
+                    break;
+                case 3:
+
+                    if (((Token)oracion.get(index)).ID.compareTo("Complemento") == 0 ){
+                        Estado = 4;
+                    }
+
+                    break;
+                case 4:
+
+                    if (((Token)oracion.get(index)).ID.compareTo("Q_Mark") == 0 ){
+                        Estado = 5;
+                    }
+
+                    break;
+                case 5:
+                    salida = "Interrogativo";
+                    break;
+                case 6:
+                    if (((Token)oracion.get(index)).ID.compareTo("Sujeto") == 0 ){
+                        Estado = 7;
+                    }
+                    break;
+                case 7:
+                    if (((Token)oracion.get(index)).ID.compareTo("Verbo") == 0 ){
+                        Estado = 8;
+                    }
+
+                    break;
+                case 8:
+                    if (((Token)oracion.get(index)).ID.compareTo("Complemento") == 0 ){
+                        Estado = 9;
+                    }
+
+                    break;
+                case 9:
+
+                    if (((Token)oracion.get(index)).ID.compareTo("Q_Mark") == 0 ){
+                        Estado = 10;
+                    }
+
+                    break;
+                case 10:
+
+                    salida = "Int_Negativo";
+
+                    break;
+                case 11:
+
+                    if (((Token)oracion.get(index)).ID.compareTo("Verbo") == 0 ){
+                        Estado = 12;
+                    }
+
+                    if (((Token)oracion.get(index)).ID.compareTo("Verb_to_be") == 0 ){
+                        Estado = 14;
+                    }
+
+                    if (((Token)oracion.get(index)).ID.compareTo("Auxiliar") == 0 ){
+                        Estado = 17;
+                    }
+
+                    break;
+                case 12:
+
+                    if (((Token)oracion.get(index)).ID.compareTo("Complemento") == 0 ){
+                        Estado = 13;
+                    }
+
+                    break;
+                case 13:
+
+                    salida = "Afirmativo";
+
+                    break;
+                case 14:
+                    if (((Token)oracion.get(index)).ID.compareTo("aux_negativo") == 0 ){
+                        Estado = 15;
+                    }
+
+                    break;
+                case 15:
+                    if (((Token)oracion.get(index)).ID.compareTo("Complemento") == 0 ){
+                        Estado = 16;
+                    }
+
+                    break;
+                case 16:
+                    salida = "Negativo";
+
+                    break;
+                case 17:
+                    if (((Token)oracion.get(index)).ID.compareTo("aux_negativo") == 0 ){
+                        Estado = 18;
+                    }
+
+                    break;
+                case 18:
+                    if (((Token)oracion.get(index)).ID.compareTo("Verbo") == 0 ){
+                        Estado = 19;
+                    }
+
+                    break;
+                case 19:
+                    if (((Token)oracion.get(index)).ID.compareTo("Complemento") == 0 ){
+                        Estado = 20;
+                    }
+
+                    break;
+                case 20:
+                    salida = "Negativo";
+                    break;
             }
-        }else if (((Token)oracion.get(0)).ID.compareTo("Sujeto") == 0){
-            if (((Token)oracion.get(1)).ID.compareTo("Verb_to_be") == 0){
-                if (((Token)oracion.get(2)).ID.compareTo("aux_negativo") == 0){
-                    return "Negativo";
-                }else {
-                    if (((Token)oracion.get(2)).ID.compareTo("Verbo") == 0){
-                        if (((Token)oracion.get(3)).ID.compareTo("Complemento") == 0){
-                            return "Afirmativo";
-                        }
-                    } else {
-                        System.out.println("Error");
-                    }
-                }
-            }else if (((Token)oracion.get(1)).ID.compareTo("Auxiliar") == 0){
-                if (((Token)oracion.get(2)).ID.compareTo("aux_negativo") == 0){
-                    if (((Token)oracion.get(3)).ID.compareTo("Verbo") == 0){
-                        if (((Token)oracion.get(4)).ID.compareTo("Complemento") == 0){
-                            return "Negativo";
-                        }
 
-                    }
-                }else {
-                    System.out.println("Error");
-                }
+            index++;
 
-            }else {
-                System.out.println("Error");
-            }
-        }else {
-            System.out.println("Error");
+
+        }
+        switch (Estado){
+            case 5:
+                salida = "Interrogativo";
+                break;
+
+            case 10:
+                salida = "Int_Negativo";
+                break;
+
+            case 13:
+                salida = "Afirmativo";
+                break;
+
+            case 16:
+                salida = "Negativo";
+                break;
+
+            case 20:
+                salida = "Negativo";
+                break;
         }
 
-
-        return "";
+        return salida;
     }
 
 
