@@ -7,12 +7,8 @@ import java.io.Serializable;
  */
 public class Nodo implements Serializable{
         String info;
+        String value;
         Nodo izq, der;
 
-        public Nodo(){
-                Nodo auxiliar;
-                Nodo sujeto;
-                Nodo verbo;
-                Nodo complemento;
-        }
+
 }

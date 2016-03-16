@@ -7,7 +7,14 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
       <TextField fx:id="tfOracion" layoutX="101.0" layoutY="49.0" prefHeight="27.0" prefWidth="385.0" />
-      <TextArea fx:id="taSalida" editable="false" layoutX="80.0" layoutY="186.0" prefHeight="200.0" prefWidth="441.0" />
-      <Button layoutX="271.0" layoutY="103.0" mnemonicParsing="false" onAction="#analizar" text="Button" />
+      <Button layoutX="271.0" layoutY="86.0" mnemonicParsing="false" onAction="#analizar" text="Analizar" />
+      <TextField fx:id="tfAfirmativo" layoutX="108.0" layoutY="192.0" prefHeight="27.0" prefWidth="385.0" />
+      <Label layoutX="273.0" layoutY="175.0" text="Afirmativo" />
+      <Label layoutX="273.0" layoutY="235.0" text="Negativo" />
+      <TextField fx:id="tfNegativo" layoutX="108.0" layoutY="252.0" prefHeight="27.0" prefWidth="385.0" />
+      <TextField fx:id="tfInterrogativo" layoutX="108.0" layoutY="304.0" prefHeight="27.0" prefWidth="385.0" />
+      <Label layoutX="261.0" layoutY="287.0" text="Interrogativo" />
+      <TextField fx:id="tfInt_Negativo" layoutX="108.0" layoutY="359.0" prefHeight="27.0" prefWidth="385.0" />
+      <Label layoutX="236.0" layoutY="342.0" text="Interrogativo Negativo" />
    </children>
 </AnchorPane>
